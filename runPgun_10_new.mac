@@ -1,0 +1,111 @@
+# can be run in batch, without graphic
+# or interactively: Idle> /control/execute runPgun.mac
+#
+
+/test/histo/setRootName 1event_10neutrons.root
+/run/verbose 2
+/event/verbose 0
+/gps/number 1
+/gps/source/multiplevertex true 
+/gps/pos/type Point
+/gps/particle neutron
+#/gps/direction 0. 0. 1.  #change the x and y values to change trajectory of particle from set position
+#/gps/direction 2. 2. 1.
+/gps/energy 2.55 TeV
+/tracking/verbose 0
+/gps/position 0 0 -6 cm  #change position of the particle
+
+
+
+/gps/source/add 2		 #uncomment this and subsequent "paragraphs" to have #multiple particles
+/gps/particle neutron	 #use same commands as the first particle for /position/trajectory
+/gps/energy 2.55 TeV
+/gps/direction 0. 0. 1.
+/gps/position 0 0 -6 cm
+#
+#/gps/source/add 3
+#/gps/particle neutron
+#/gps/energy 2.55 TeV
+#/gps/direction 0. 0. 1.
+#/gps/position -1 1 -6 cm
+#
+#/gps/source/add 4
+#/gps/particle neutron
+#/gps/energy 2.55 TeV
+#/gps/direction 0. 0. 1.
+#/gps/position -1 -1 -6 cm
+#
+#/gps/source/add 5
+#/gps/particle neutron
+#/gps/energy 2.55 TeV
+#/gps/direction 0. 0. 1.
+#/gps/position 2 2 -6 cm
+#
+#/gps/source/add 6
+#/gps/particle neutron
+#/gps/energy 2.55 TeV
+#/gps/direction 0. 0. 1.
+#/gps/position 2 -2 -6 cm
+#
+#/gps/source/add 7
+#/gps/particle neutron
+#/gps/energy 2.55 TeV
+#/gps/direction 0. 0. 1.
+#/gps/position -2 2 -6 cm
+#
+#/gps/source/add 8
+#/gps/particle neutron
+#/gps/energy 2.55 TeV
+#/gps/direction 0. 0. 1.
+#/gps/position -2 -2 -6 cm
+#
+#/gps/source/add 9
+#/gps/particle neutron
+#/gps/energy 2.55 TeV
+#/gps/direction 0. 0. 1.
+#/gps/position 3 3 -6 cm
+#
+#/gps/source/add 10
+#/gps/particle neutron
+#/gps/energy 2.55 TeV
+#/gps/direction 0. 0. 1.
+#/gps/position -3 -3 -6 cm
+#
+#/gps/source/add 11
+#/gps/particle neutron
+#/gps/energy 2.55 TeV
+#/gps/direction 0. 0. 1.
+#/gps/position -1.25 -1.5625 -6 cm
+#
+#/gps/source/add 12
+#/gps/particle neutron
+#/gps/energy 2.55 TeV
+#/gps/direction 0. 0. 1.
+#/gps/position -3.75 -1.5625 -6 cm
+#
+#/gps/source/add 13
+#/gps/particle neutron
+#/gps/energy 2.55 TeV
+#/gps/direction 0. 0. 1.
+#/gps/position 3.75 -4.6875 -6 cm
+#
+#/gps/source/add 14
+#/gps/particle neutron
+#/gps/energy 2.55 TeV
+#/gps/direction 0. 0. 1.
+#/gps/position 1.25 -4.6875 -6 cm
+#
+#/gps/source/add 15
+#/gps/particle neutron
+#/gps/energy 2.55 TeV
+#/gps/direction 0. 0. 1.
+#/gps/position -1.25 -4.6875 -6 cm
+#
+#/gps/source/add 16
+#/gps/particle neutron
+#/gps/energy 2.55 TeV
+#/gps/direction 0. 0. 1.
+#/gps/position -3.75 -4.6875 -6 cm
+
+
+/run/beamOn 1
