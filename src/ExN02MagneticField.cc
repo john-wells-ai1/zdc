@@ -26,7 +26,7 @@
 //
 // $Id: ExN02MagneticField.cc,v 1.9 2007-08-22 13:11:51 gcosmo Exp $
 // GEANT4 tag $Name: geant4-09-04-patch-02 $
-//  
+//
 //   User Field class implementation.
 //
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -38,9 +38,7 @@
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-ExN02MagneticField::ExN02MagneticField()
-  : G4UniformMagField(G4ThreeVector())
-{
+ExN02MagneticField::ExN02MagneticField() : G4UniformMagField(G4ThreeVector()) {
   GetGlobalFieldManager()->SetDetectorField(this);
   GetGlobalFieldManager()->CreateChordFinder(this);
 }
@@ -48,38 +46,32 @@ ExN02MagneticField::ExN02MagneticField()
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 ExN02MagneticField::ExN02MagneticField(G4ThreeVector fieldVector)
-  : G4UniformMagField(fieldVector)
-{
-  GetGlobalFieldManager()->SetDetectorField(this);    
+    : G4UniformMagField(fieldVector) {
+  GetGlobalFieldManager()->SetDetectorField(this);
   GetGlobalFieldManager()->CreateChordFinder(this);
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-ExN02MagneticField::~ExN02MagneticField()
-{
-}
+ExN02MagneticField::~ExN02MagneticField() {}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 // Set the value of the Global Field to fieldValue along X
 //
-void ExN02MagneticField::SetMagFieldValue(G4double fieldValue)
-{
-   SetMagFieldValue(G4ThreeVector(fieldValue,0,0));
+void ExN02MagneticField::SetMagFieldValue(G4double fieldValue) {
+  SetMagFieldValue(G4ThreeVector(fieldValue, 0, 0));
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 // Set the value of the Global Field
 //
-void ExN02MagneticField::SetMagFieldValue(G4ThreeVector fieldVector)
-{
+void ExN02MagneticField::SetMagFieldValue(G4ThreeVector fieldVector) {
   // Find the Field Manager for the global field
-  G4FieldManager* fieldMgr= GetGlobalFieldManager();
-    
-  if(fieldVector!=G4ThreeVector(0.,0.,0.))
-  { 
+  G4FieldManager* fieldMgr = GetGlobalFieldManager();
+
+  if (fieldVector != G4ThreeVector(0., 0., 0.)) {
     SetFieldValue(fieldVector);
     fieldMgr->SetDetectorField(this);
   } else {
@@ -92,8 +84,7 @@ void ExN02MagneticField::SetMagFieldValue(G4ThreeVector fieldVector)
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-G4FieldManager*  ExN02MagneticField::GetGlobalFieldManager()
-{
+G4FieldManager* ExN02MagneticField::GetGlobalFieldManager() {
   return G4TransportationManager::GetTransportationManager()->GetFieldManager();
 }
 

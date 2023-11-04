@@ -2,38 +2,35 @@
 /**
  * @file
  * @brief Implementation of user class CaloHit.
-*/
+ */
 
 #include "CaloHit.hh"
 #include "G4UnitsTable.hh"
 // -- one more nasty trick for new and delete operator overloading:
 G4Allocator<CaloHit> CaloHitAllocator;
 
-CaloHit::CaloHit(G4int z)
-{
+CaloHit::CaloHit(G4int z) {
   cellID = z;
   eDep = 0.;
-  fPos=G4ThreeVector(0.,0.,0.);
+  fPos = G4ThreeVector(0., 0., 0.);
 }
-CaloHit::CaloHit()
-{
+CaloHit::CaloHit() {
   cellID = -1;
   eDep = 0.;
-  fPos=G4ThreeVector(0.,0.,0.);
+  fPos = G4ThreeVector(0., 0., 0.);
 }
-CaloHit::~CaloHit()
-{
-}
+CaloHit::~CaloHit() {}
 
-void CaloHit::Print()
-{
-	//---------------------
-	// Exercise 1 of task 4c
-	//---------------------
-	//Add some print out on screen: layer number and energy deposited
-//	G4cout<<"CaloHit::Print: edep: "<<edep<<G4endl;
-// need this as private in CaloHit.hh:
-//  private:
- //     G4double edep;
- 	G4cout<<"CaloHit: cellID="<<cellID<<" Edep="<<G4BestUnit(eDep,"Energy, ")<<" Position: "<< G4BestUnit( fPos,"Length")<<G4endl;
+void CaloHit::Print() {
+  //---------------------
+  // Exercise 1 of task 4c
+  //---------------------
+  // Add some print out on screen: layer number and energy deposited
+  //	G4cout<<"CaloHit::Print: edep: "<<edep<<G4endl;
+  // need this as private in CaloHit.hh:
+  //  private:
+  G4double edep;
+  G4cout << "CaloHit: cellID=" << cellID
+         << " Edep=" << G4BestUnit(eDep, "Energy, ")
+         << " Position: " << G4BestUnit(fPos, "Length") << G4endl;
 }
